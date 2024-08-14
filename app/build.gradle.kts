@@ -58,8 +58,23 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.navigation:navigation-runtime-ktx:2.7.7")
-    testImplementation("junit:junit:4.13.2")
+
+    dependencies {
+
+        dependencies {
+            testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+            testImplementation ("io.mockk:mockk:1.13.0")
+            testImplementation ("junit:junit:4.13.2")
+            testImplementation ("androidx.arch.core:core-testing:2.1.0")
+        }
+
+
+
+    }
+
+
     implementation ("androidx.compose.material:material:1.6.8")
+    implementation("com.google.firebase:firebase-firestore-ktx:25.0.0")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     debugImplementation("androidx.compose.ui:ui-tooling")

@@ -1,4 +1,4 @@
-package com.example.todoapp.model
+package com.example.ics342.model
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 public val apikey="3f3884d5-260e-4265-86fe-197b597d95db"

@@ -1,12 +1,12 @@
-package com.example.todoapp
+package com.example.ics342
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.todoapp.model.*
-import com.example.todoapp.modelview.*
-import com.example.todoapp.view.*
+import com.example.ics342.model.*
+import com.example.ics342.modelview.*
+import com.example.ics342.view.*
 
 @Composable
 

@@ -1,11 +1,11 @@
-package com.example.todoapp.modelview
+package com.example.ics342.modelview
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
-import com.example.todoapp.model.*
-import com.example.todoapp.model.LoginRequest
+import com.example.ics342.model.*
+import com.example.ics342.model.LoginRequest
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

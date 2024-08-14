@@ -1,8 +1,8 @@
-package com.example.todoapp.modelview
+package com.example.ics342.modelview
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
-import com.example.todoapp.model.*
+import com.example.ics342.model.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -11,6 +11,7 @@ class CreateAccountViewModel(private val apiService: Api) : ViewModel() {
     val isLoading: StateFlow<Boolean> = _isLoading
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error
+
     fun createAccount(name: String, email: String, password: String, navController: NavController) {
         _isLoading.value = true
         viewModelScope.launch {
@@ -19,6 +20,8 @@ class CreateAccountViewModel(private val apiService: Api) : ViewModel() {
                 if (response.isSuccessful && response.body() != null) {
                     _error.value = null
                     navController.navigate("loginRoute")
+                } else if (response.code() == 403 || response.code() == 429) {
+                    _error.value = "Account creation limit reached. Please contact support."
                 } else {
                     _error.value = "Account creation failed: ${response.message()} ${response.errorBody()?.string()}"
                 }

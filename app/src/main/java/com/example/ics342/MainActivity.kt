@@ -1,5 +1,5 @@
-package com.example.todoapp
-import com.example.todoapp.model.*
+package com.example.ics342
+import com.example.ics342.model.*
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent

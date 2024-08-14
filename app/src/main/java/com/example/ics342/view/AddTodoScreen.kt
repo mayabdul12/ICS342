@@ -1,4 +1,4 @@
-package com.example.todoapp.view
+package com.example.ics342.view
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -11,8 +11,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.ics342.modelview.TodoListViewModel
 import com.example.todoapp.R
-import com.example.todoapp.modelview.TodoListViewModel
 
 @Composable
 fun AddTodoScreen(navController: NavController, viewModel: TodoListViewModel) {

@@ -1,4 +1,4 @@
-package com.example.todoapp.view
+package com.example.ics342.view
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -13,11 +13,11 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.ics342.modelview.LoginViewModel
 import com.example.todoapp.R
-import com.example.todoapp.modelview.CreateAccountViewModel
+
 @Composable
-fun CreateAccountScreen(navController: NavController, viewModel: CreateAccountViewModel) {
-    var name by remember { mutableStateOf("") }
+fun LoginScreen(navController: NavController, viewModel: LoginViewModel) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     val isLoading by viewModel.isLoading.collectAsState()
@@ -31,7 +31,7 @@ fun CreateAccountScreen(navController: NavController, viewModel: CreateAccountVi
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = stringResource(R.string.todo_register),
+            text = stringResource(R.string.todo_login),
             style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.Bold),
             color = MaterialTheme.colors.primary
         )
@@ -39,18 +39,9 @@ fun CreateAccountScreen(navController: NavController, viewModel: CreateAccountVi
         Spacer(modifier = Modifier.height(16.dp))
 
         TextField(
-            value = name,
-            onValueChange = { name = it },
-            label = { Text(stringResource(R.string.name)) },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        TextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text(stringResource(R.string.email_address)) },
+            label =  { Text(stringResource(R.string.email_address))},
             modifier = Modifier.fillMaxWidth(),
             keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next)
         )
@@ -63,36 +54,28 @@ fun CreateAccountScreen(navController: NavController, viewModel: CreateAccountVi
             label = { Text(stringResource(R.string.password)) },
             modifier = Modifier.fillMaxWidth(),
             keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
-            keyboardActions = KeyboardActions(onDone = {
-                if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && !isLoading) {
-                    viewModel.createAccount(name, email, password, navController)
-                }
-            }),
+            keyboardActions = KeyboardActions(onDone = { viewModel.login(email, password, navController) }),
             visualTransformation = PasswordVisualTransformation()
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = {
-                if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && !isLoading) {
-                    viewModel.createAccount(name, email, password, navController)
-                }
-            },
+            onClick = { viewModel.login(email, password, navController) },
             modifier = Modifier.fillMaxWidth(),
-            enabled = name.isNotEmpty() and email.isNotEmpty() and password.isNotEmpty() and !isLoading,
+            enabled = email.isNotEmpty() && password.isNotEmpty() && !isLoading,
             shape = RoundedCornerShape(8.dp)
         ) {
-            Text(stringResource(R.string.create_account))
+            Text(stringResource(R.string.login))
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
         TextButton(
-            onClick = { navController.navigate("loginRoute") },
+            onClick = { navController.navigate("createAccountRoute") },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         ) {
-            Text(stringResource(R.string.log_in))
+            Text(stringResource(R.string.create_an_account))
         }
 
         if (isLoading) {
