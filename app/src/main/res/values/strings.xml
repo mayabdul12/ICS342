@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Todo App</string>
+    <string name="task_description">Task Description</string>
+    <string name="add_task">Add Task</string>
+    <string name="clear">Clear</string>
+    <string name="todo_register">Todo - Register</string>
+    <string name="name">Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="log_in">Log In</string>
+    <string name="todo_login">Todo - Login</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="login">Login</string>
+    <string name="todo_tasks">Todo Tasks</string>
+    <string name="add_new_task">Add New Task</string>
+</resources>
